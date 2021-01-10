@@ -1,0 +1,41 @@
+.top-bar {
+  width: 100%;
+  height: 120px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.top-bar div {
+  /*border: 2px solid red;*/
+  margin: 0px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.logo {
+  text-align: left;
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.nomis {
+  font-size: 20px;
+  margin-right: 50px !important;
+}
+
+.nomis span {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.nomis:hover {
+  color: rgb(175, 201, 119);
+  transition: 0.2s ease-in-out;
+  transform: scale(1.05);
+}
