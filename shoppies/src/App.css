@@ -8,4 +8,5 @@ body {
   width: 100%;
   height: 100vh;
   background: linear-gradient(to right, #f1ffd3, #fffadf);
+  font-family: "Barlow", sans-serif;
 }
