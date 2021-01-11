@@ -34,7 +34,7 @@
   cursor: pointer;
 }
 
-.nomis:hover {
+.nomis-btn:hover {
   color: rgb(175, 201, 119);
   transition: 0.2s ease-in-out;
   transform: scale(1.05);
