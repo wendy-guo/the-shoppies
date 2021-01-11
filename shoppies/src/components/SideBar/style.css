@@ -1,5 +1,6 @@
 .side-bar {
-  position: absolute;
+  position: fixed;
+  z-index: 50;
   top: 0px;
   right: 0px;
   -webkit-box-shadow: 4px 4px 4px 4px #ccc;
@@ -8,6 +9,7 @@
   width: 400px;
   height: 100vh;
   background-color: white;
+  transition: 0.4s ease-in-out;
 }
 
 .sb-heading {
@@ -24,16 +26,57 @@
   margin: 10px 20px;
 }
 
+.sb-close {
+  cursor: pointer;
+}
+
+.sb-close:hover {
+}
+
 .sb-nom {
   width: inherit;
   height: 110px;
   margin: 15px 10px;
-  border: 2px solid black;
   display: flex;
 }
 
 .nom-image {
-  width: 100px;
-  height: 100px;
+  min-width: 100px;
+  height: inherit;
   background-color: grey;
+  margin: 0px 10px;
+}
+
+.nom-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.submit-btn {
+  position: relative;
+  width: 100px;
+  height: 50px;
+  margin: 30px auto;
+}
+
+.submit,
+.no-submit,
+.submit-shadow {
+  position: absolute;
+  text-align: center;
+  border: 1px solid black;
+  width: inherit;
+  height: 30px;
+  line-height: 30px;
+  z-index: 2;
+  top: 0px;
+  left: 0px;
+  background-color: white;
+}
+
+.submit-shadow {
+  background-color: black;
+  z-index: 1;
+  top: 5px;
+  left: 5px;
 }
