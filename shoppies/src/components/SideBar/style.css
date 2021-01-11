@@ -1,0 +1,39 @@
+.side-bar {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  -webkit-box-shadow: 4px 4px 4px 4px #ccc;
+  -moz-box-shadow: 4px 4px 4px 4px #ccc;
+  box-shadow: 4px 4px 4px 4px #ccc;
+  width: 400px;
+  height: 100vh;
+  background-color: white;
+}
+
+.sb-heading {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.sb-heading div {
+  margin: 10px 20px;
+}
+
+.sb-nom {
+  width: inherit;
+  height: 110px;
+  margin: 15px 10px;
+  border: 2px solid black;
+  display: flex;
+}
+
+.nom-image {
+  width: 100px;
+  height: 100px;
+  background-color: grey;
+}
