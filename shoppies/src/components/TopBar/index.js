@@ -1,7 +1,7 @@
 import "./style.css";
 import { FaAward as Award } from "react-icons/fa";
 
-function TopBar() {
+function TopBar(props) {
   return (
     <div className="top-bar">
       <div className="logo">
@@ -9,7 +9,7 @@ function TopBar() {
         SHOPPIES
       </div>
       <div className="nomis">
-        <span>
+        <span className="nomis-btn" onClick={props.onNomClick}>
           <Award size={30} />
           <span style={{ marginLeft: "5px" }}>nominations</span>
         </span>
