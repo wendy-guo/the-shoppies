@@ -9,9 +9,18 @@ body {
 }
 
 .App {
+  position: absolute;
+  top: 0px;
   margin: 0px;
   width: 100%;
+  height: max-content;
   min-height: 100vh;
-  background: linear-gradient(to right, #efffcd, #fff8d1);
   font-family: "Barlow", sans-serif;
+}
+
+.app-bg {
+  position: fixed;
+  background: linear-gradient(to right, #efffcd, #fff8d1);
+  width: 100vw;
+  height: 100vh;
 }
