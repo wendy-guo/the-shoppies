@@ -12,6 +12,7 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [showSideBar, setShowSideBar] = useState(false);
   const [isFetching, setIsFetching] = useState(false);
+  const [nominations, setNominations] = useState([]);
 
   const [fixedSearchBar, setFixedSearchBar] = useState(false);
 
@@ -55,6 +56,16 @@ function App() {
     console.log("another page....................");
   };
 
+  const handleNomination = (movie) => {
+    if (nominations.length === 5) {
+      // display banner
+      return;
+    }
+    nominations.push(movie);
+    setNominations(nominations);
+    console.log(nominations);
+  };
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
   }, []);
@@ -76,12 +87,15 @@ function App() {
       <TopBar onNomClick={handleNomClick} />
       <SearchBar onValueChange={handleValueChange} fixed={fixedSearchBar} />
       <SideBar
-        numNom={0}
-        nominations={[1, 2, 3, 4, 5]}
+        nominations={nominations}
         open={showSideBar}
         onClose={handleCloseSidebar}
       />
-      <Movies movies={movies} margin={fixedSearchBar} />
+      <Movies
+        movies={movies}
+        margin={fixedSearchBar}
+        onNominate={handleNomination}
+      />
     </div>
   );
 }
