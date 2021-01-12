@@ -1,0 +1,14 @@
+.layer {
+  transition: 0.4s ease-in-out;
+}
+
+.dark-layer {
+  position: fixed;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  z-index: 10;
+  background-color: black;
+  opacity: 0.4;
+}
