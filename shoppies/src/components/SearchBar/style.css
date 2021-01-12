@@ -1,7 +1,18 @@
 .search-bar {
   height: fit-content;
   width: fit-content;
-  margin: 15% auto;
+  margin: 40vh auto;
+  margin-bottom: 150px;
+  transition: 0.2s ease-in-out;
+}
+
+.fixed {
+  position: fixed;
+  z-index: 5;
+  left: 50%;
+  top: 15px;
+  margin: 0px;
+  margin-left: -283px;
 }
 
 .heading {
@@ -13,7 +24,7 @@
 
 .text {
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   font-style: italic;
   font-weight: 600;
   letter-spacing: 1px;
@@ -24,7 +35,7 @@
   background-color: rgb(255, 205, 192);
   width: 275px;
   height: 15px;
-  z-index: 1;
+  z-index: 2;
   left: 10px;
   top: 5px;
 }
@@ -46,7 +57,7 @@
   letter-spacing: 1px;
   font-family: inherit;
   padding-left: 10px;
-  z-index: 2;
+  z-index: 3;
 }
 
 .bar::placeholder {
@@ -64,7 +75,7 @@
   width: 566px;
   height: 40px;
   background-color: black;
-  z-index: 1;
+  z-index: 2;
   top: 14px;
   left: 7px;
 }
