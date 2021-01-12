@@ -52,6 +52,7 @@
 
 .title {
   margin-top: 7px;
+  margin-bottom: 2px;
   font-weight: 400;
   width: 100%;
 }
@@ -72,10 +73,27 @@
 .award-svg {
   display: flex;
   align-items: center;
+  font-size: 22px;
 }
 
 .award-svg svg:hover {
   cursor: pointer;
+}
+
+.fill {
+  fill: rgb(178, 218, 114);
+}
+
+.no-fill {
+  fill: rgb(0, 0, 0);
+}
+
+.fill:hover {
+  fill: rgb(0, 0, 0);
+}
+
+.no-fill:hover {
+  fill: rgb(178, 218, 114);
 }
 
 @keyframes enter {
