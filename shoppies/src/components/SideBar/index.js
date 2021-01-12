@@ -16,7 +16,8 @@ function SideBar(props) {
         {props.nominations.map((nom, i) => (
           <Nomination
             key={i}
-            title="Harry Potter and the Philosopher's Stone"
+            title={nom.title}
+            poster={nom.poster}
             even={i % 2 === 0}
           />
         ))}
@@ -37,7 +38,7 @@ function Nomination(props) {
       className="sb-nom"
       style={{ flexDirection: props.even ? "row" : "row-reverse" }}
     >
-      <div className="nom-image"></div>
+      {props.poster === "N/A" ? <div className="nom-image"></div> : <img src={props.poster} alt={props.title}/>}
       <div
         className="nom-title"
         style={{ textAlign: props.even ? "left" : "right" }}
