@@ -19,7 +19,7 @@
   height: 300px;
   width: 20%;
   /*border: 2px solid black;*/
-  margin: 25px 20px;
+  margin: 25px 2.5%;
   text-align: center;
   animation: 0.4s enter ease-in-out;
 }
@@ -57,8 +57,25 @@
 }
 
 .year-nom {
+  width: fit-content;
+  margin: auto;
   font-weight: 500;
   font-size: 18px;
+  display: flex;
+}
+
+.year-nom div,
+.year-nom span {
+  margin: 0px 2px;
+}
+
+.award-svg {
+  display: flex;
+  align-items: center;
+}
+
+.award-svg svg:hover {
+  cursor: pointer;
 }
 
 @keyframes enter {
