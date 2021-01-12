@@ -38,6 +38,14 @@
   opacity: 0.5;
 }
 
+.movie img:hover,
+.no-img:hover {
+  transform: scale(1.05);
+  transition: 0.4s ease;
+  opacity: 0.9;
+  cursor: pointer;
+}
+
 .movie span {
   display: inline-block;
 }
@@ -48,8 +56,9 @@
   width: 100%;
 }
 
-.year {
+.year-nom {
   font-weight: 500;
+  font-size: 18px;
 }
 
 @keyframes enter {
