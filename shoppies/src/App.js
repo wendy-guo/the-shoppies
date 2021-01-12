@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import TopBar from "./components/TopBar";
 import SearchBar from "./components/SearchBar";
+import DarkLayer from "./components/DarkLayer";
 import SideBar from "./components/SideBar";
 import Movies from "./components/Movies";
 
@@ -91,6 +92,7 @@ function App() {
       <div className="app-bg"></div>
       <TopBar onNomClick={handleNomClick} />
       <SearchBar onValueChange={handleValueChange} fixed={fixedSearchBar} />
+      <DarkLayer show={showSideBar} onClick={handleCloseSidebar} />
       <SideBar
         nominations={nominations}
         open={showSideBar}
