@@ -20,7 +20,7 @@ body {
 
 .app-bg {
   position: fixed;
-  background: linear-gradient(to right, #efffcd, #fff8d1);
+  background: linear-gradient(to right, #e5ffc3, #fff7cd);
   width: 100vw;
   height: 100vh;
 }
