@@ -1,6 +1,6 @@
 import "./style.css";
 
-function SearchBar() {
+function SearchBar(props) {
   return (
     <div className="search-bar">
       <div className="heading">
@@ -8,7 +8,13 @@ function SearchBar() {
         <div className="background"></div>
       </div>
       <div className="search">
-        <input className="bar" type="text" placeholder="search..." />
+        <input
+          className="bar"
+          type="text"
+          placeholder="search..."
+          value={props.value}
+          onChange={props.onValueChange}
+        />
         <div className="shadow"></div>
       </div>
     </div>
