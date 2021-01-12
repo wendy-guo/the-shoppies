@@ -1,0 +1,15 @@
+.movies {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.movie {
+  height: 250px;
+  width: 20%;
+  border: 2px solid black;
+  margin: 25px 20px;
+}
