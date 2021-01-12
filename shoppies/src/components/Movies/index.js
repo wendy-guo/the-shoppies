@@ -1,12 +1,20 @@
 import "./style.css";
 import { BsAward, BsAwardFill } from "react-icons/bs";
+import { useState } from "react";
 
 function Movies(props) {
-  let movies = props.movies || [];
+  //const [nominations, setNominations] = useState(props.nominations);
+  const movies = props.movies || [];
+
   return (
     <div className="movies">
       {movies.map((movie, i) => (
-        <Movie key={100 + i} movie={movie} onClick={props.onNominate} />
+        <Movie
+          key={100 + i}
+          movie={movie}
+          onClick={props.onNominate}
+          nominated={props.nominations.includes(movie.imdbID)}
+        />
       ))}
       {movies.length === 0 ? null : (
         <div style={{ paddingBottom: "400px", width: "1px" }}></div>
@@ -16,8 +24,19 @@ function Movies(props) {
 }
 
 function Movie(props) {
+  const [hover, setHover] = useState(false);
+  const [nominated, setNominated] = useState(props.nominated);
+
+  const handleHover = (hov) => {
+    setHover(hov);
+  };
+
+  const handleClick = () => {
+    setNominated(props.onClick(props.movie));
+  };
+
   return (
-    <div className="movie" onClick={() => props.onClick(props.movie)}>
+    <div className="movie" onClick={handleClick}>
       {props.movie.Poster === "N/A" ? (
         <div className="no-img"></div>
       ) : (
@@ -28,7 +47,11 @@ function Movie(props) {
       <div className="year-nom">
         <span>{props.movie.Year}</span>
         <div className="award-svg">
-          <BsAward />
+          {nominated ? (
+            <BsAwardFill className="fill" />
+          ) : (
+            <BsAward className="no-fill" />
+          )}
         </div>
       </div>
     </div>
