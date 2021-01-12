@@ -57,13 +57,18 @@ function App() {
   };
 
   const handleNomination = (movie) => {
-    if (nominations.length === 5) {
+    if (nominations.includes(movie)) {
+      setNominations(nominations.filter((mov) => mov !== movie));
+      console.log(nominations.filter((mov) => mov.imdbID !== movie.imdbID));
+      return false;
+    } else if (nominations.length === 5) {
       // display banner
-      return;
+      return false;
+    } else {
+      nominations.push(movie);
+      setNominations(nominations);
+      return true;
     }
-    nominations.push(movie);
-    setNominations(nominations);
-    console.log(nominations);
   };
 
   useEffect(() => {
@@ -95,6 +100,7 @@ function App() {
         movies={movies}
         margin={fixedSearchBar}
         onNominate={handleNomination}
+        nominations={nominations.map((movie) => movie.imdbID)}
       />
     </div>
   );
