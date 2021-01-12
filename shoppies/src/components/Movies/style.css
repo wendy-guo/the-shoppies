@@ -1,13 +1,21 @@
 .movies {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   width: 80%;
   margin: auto;
+  margin-top: 60vh;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
+  padding-bottom: 100px;
 }
 
 .movie {
+  position: relative;
   height: 250px;
   width: 20%;
   border: 2px solid black;
