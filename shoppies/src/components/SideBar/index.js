@@ -7,7 +7,7 @@ function SideBar(props) {
       style={{ transform: props.open ? "translateX(0px)" : "translateX(100%)" }}
     >
       <div className="sb-heading">
-        <div>nominations {props.numNom}/5</div>
+        <div>nominations {props.nominations.length}/5</div>
         <div className="sb-close" onClick={props.onClose}>
           {"->"}
         </div>
@@ -16,17 +16,18 @@ function SideBar(props) {
         {props.nominations.map((nom, i) => (
           <Nomination
             key={i}
-            title={nom.title}
-            poster={nom.poster}
+            title={nom.Title}
+            poster={nom.Poster}
             even={i % 2 === 0}
           />
         ))}
       </div>
-      <div className="submit-btn">
+      <div
+        className="submit-btn"
+        style={{ opacity: props.nominations.length === 5 ? "1" : "0" }}
+      >
         <div className="submit-shadow">huh</div>
-        <div className={props.numNom === 5 ? "submit" : "no-submit"}>
-          submit
-        </div>
+        <div className="submit">submit</div>
       </div>
     </div>
   );
@@ -38,7 +39,11 @@ function Nomination(props) {
       className="sb-nom"
       style={{ flexDirection: props.even ? "row" : "row-reverse" }}
     >
-      {props.poster === "N/A" ? <div className="nom-image"></div> : <img src={props.poster} alt={props.title}/>}
+      {props.poster === "N/A" ? (
+        <div className="nom-image"></div>
+      ) : (
+        <img src={props.poster} alt={props.title} />
+      )}
       <div
         className="nom-title"
         style={{ textAlign: props.even ? "left" : "right" }}
