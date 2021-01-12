@@ -15,6 +15,7 @@ function SideBar(props) {
       <div>
         {props.nominations.map((nom, i) => (
           <Nomination
+            key={i}
             title="Harry Potter and the Philosopher's Stone"
             even={i % 2 === 0}
           />
