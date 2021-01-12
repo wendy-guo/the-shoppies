@@ -41,10 +41,15 @@
 }
 
 .nom-image {
-  min-width: 100px;
+  width: 100px;
   height: inherit;
   background-color: grey;
   margin: 0px 10px;
+  opacity: 0.6;
+}
+
+.sb-nom img {
+  height: inherit;
 }
 
 .nom-title {
