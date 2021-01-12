@@ -1,3 +1,8 @@
+html {
+  /* permanent scroll bar (prevents divs from shifting when scroll bar appears) */
+  overflow-y: scroll;
+}
+
 body {
   width: 100%;
   height: 100vh;
