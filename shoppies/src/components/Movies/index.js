@@ -1,4 +1,5 @@
 import "./style.css";
+import { BsAward, BsAwardFill } from "react-icons/bs";
 
 function Movies(props) {
   let movies = props.movies || [];
@@ -24,7 +25,12 @@ function Movie(props) {
       )}
       <span className="title">{props.movie.Title}</span>
       <br />
-      <span className="year-nom">{props.movie.Year} O</span>
+      <div className="year-nom">
+        <span>{props.movie.Year}</span>
+        <div className="award-svg">
+          <BsAward />
+        </div>
+      </div>
     </div>
   );
 }
