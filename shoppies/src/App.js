@@ -13,6 +13,8 @@ function App() {
   const [showSideBar, setShowSideBar] = useState(false);
   const [isFetching, setIsFetching] = useState(false);
 
+  const [fixedSearchBar, setFixedSearchBar] = useState(false);
+
   const handleNomClick = () => {
     setShowSideBar(true);
   };
@@ -40,6 +42,7 @@ function App() {
   };
 
   const handleScroll = () => {
+    setFixedSearchBar(document.documentElement.scrollTop !== 0);
     if (
       Math.ceil(
         document.documentElement.scrollHeight -
@@ -69,15 +72,16 @@ function App() {
 
   return (
     <div className="App">
+      <div className="app-bg"></div>
       <TopBar onNomClick={handleNomClick} />
-      <SearchBar onValueChange={handleValueChange} />
+      <SearchBar onValueChange={handleValueChange} fixed={fixedSearchBar} />
       <SideBar
         numNom={0}
         nominations={[1, 2, 3, 4, 5]}
         open={showSideBar}
         onClose={handleCloseSidebar}
       />
-      <Movies movies={movies} />
+      <Movies movies={movies} margin={fixedSearchBar} />
     </div>
   );
 }
