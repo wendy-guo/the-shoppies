@@ -38,6 +38,9 @@
   z-index: 2;
   left: 10px;
   top: 5px;
+  animation: rainbow 20s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 .search {
@@ -78,4 +81,25 @@
   z-index: 2;
   top: 14px;
   left: 7px;
+}
+
+@keyframes rainbow {
+  0% {
+    background-color: rgb(255, 205, 192);
+  }
+  20% {
+    background-color: rgb(254, 255, 175);
+  }
+  40% {
+    background-color: rgb(196, 255, 214);
+  }
+  60% {
+    background-color: rgb(192, 232, 255);
+  }
+  80% {
+    background-color: rgb(255, 208, 239);
+  }
+  100% {
+    background-color: rgb(255, 205, 192);
+  }
 }
