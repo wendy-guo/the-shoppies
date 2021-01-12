@@ -21,7 +21,18 @@ function Movies(props) {
 }
 
 function Movie(props) {
-  return <div className="movie">{props.title}</div>;
+  return (
+    <div className="movie">
+      {props.poster === "N/A" ? (
+        <div className="no-img"></div>
+      ) : (
+        <img src={props.poster} alt={props.title} />
+      )}
+      <span className="title">{props.title}</span>
+      <br />
+      <span className="year">{props.year}</span>
+    </div>
+  );
 }
 
 export default Movies;
