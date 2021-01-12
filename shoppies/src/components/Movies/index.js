@@ -3,7 +3,7 @@ import "./style.css";
 function Movies(props) {
   let movies = props.movies || [];
   return (
-    <div>
+    <div className="movies">
       {movies.map((movie, i) => (
         <Movie
           key={100 + i}
@@ -13,6 +13,9 @@ function Movies(props) {
           poster={movie.Poster}
         />
       ))}
+      {movies.length === 0 ? null : (
+        <div style={{ paddingBottom: "400px", width: "1px" }}></div>
+      )}
     </div>
   );
 }
