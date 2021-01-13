@@ -45,7 +45,10 @@ function Movie(props) {
   };
 
   return (
-    <div className="movie" onClick={handleClick}>
+    <div
+      className={"movie".concat(nominated ? " nominated" : "")}
+      onClick={handleClick}
+    >
       {props.movie.Poster === "N/A" ? (
         <div className="no-img"></div>
       ) : (
