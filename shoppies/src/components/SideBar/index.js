@@ -11,7 +11,7 @@ function SideBar(props) {
       <div className="sb-heading">
         <div>nominations {props.nominations.length}/5</div>
         <div className="sb-close" onClick={props.onClose}>
-          {"->"}
+          <IoMdClose />
         </div>
       </div>
       <div>
@@ -21,6 +21,7 @@ function SideBar(props) {
       </div>
       <div
         className="submit-btn"
+        onClick={props.onSubmit}
         style={{ opacity: props.nominations.length === 5 ? "1" : "0" }}
       >
         <div className="submit-shadow">huh</div>
@@ -31,7 +32,6 @@ function SideBar(props) {
 }
 
 function Nomination(props) {
-  console.log(props.nom);
   return (
     <div className="sb-nom">
       {props.nom.Poster === "N/A" ? (

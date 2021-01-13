@@ -13,7 +13,9 @@ function Banner(props) {
         <IoMdClose />
       </div>
       <div>You have nominated 5 movies!</div>
-      <div className="sub-btn">submit</div>
+      <div className="sub-btn" onClick={props.onSubmit}>
+        submit
+      </div>
     </div>
   );
 }
