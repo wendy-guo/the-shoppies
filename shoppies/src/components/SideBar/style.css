@@ -38,6 +38,7 @@
   height: 110px;
   margin: 15px 10px;
   display: flex;
+  flex-direction: row;
 }
 
 .nom-image {
@@ -55,6 +56,20 @@
 .nom-title {
   font-size: 20px;
   font-weight: 500;
+  margin: 0px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.garbage {
+  margin-top: 2px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.garbage:hover {
+  fill: rgb(221, 102, 102);
 }
 
 .submit-btn {
