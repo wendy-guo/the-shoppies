@@ -23,20 +23,24 @@
 }
 
 .sb-heading div {
-  margin: 10px 20px;
+  margin: 0px 20px;
+  margin-top: 10px;
 }
 
 .sb-close {
   cursor: pointer;
+  font-size: 30px;
 }
 
-.sb-close:hover {
+.sb-close:hover > svg {
+  fill: rgb(221, 102, 102);
+  transition: 0.2s ease-in-out;
 }
 
 .sb-nom {
   width: inherit;
   height: 110px;
-  margin: 15px 10px;
+  margin: 20px 10px;
   display: flex;
   flex-direction: row;
 }
@@ -77,6 +81,7 @@
   width: 100px;
   height: 50px;
   margin: 30px auto;
+  cursor: pointer;
 }
 
 .submit,
@@ -98,4 +103,16 @@
   z-index: 1;
   top: 5px;
   left: 5px;
+}
+
+.submit-btn:hover > .submit-shadow {
+  top: 0px;
+  left: 0px;
+  transition: 0.2s ease-in-out;
+}
+
+.submit-btn:hover > .submit {
+  background-color: rgb(238, 238, 238);
+  font-weight: 500;
+  transition: 0.2s ease-in-out;
 }
