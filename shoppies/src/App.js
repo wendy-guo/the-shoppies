@@ -14,9 +14,12 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [showSideBar, setShowSideBar] = useState(false);
   const [isFetching, setIsFetching] = useState(false);
-  const [nominations, setNominations] = useState([]);
+  const [nominations, setNominations] = useState(
+    JSON.parse(localStorage.getItem("nominations")) || []
+  );
   const [banner, setBanner] = useState(false);
   const [fixedSearchBar, setFixedSearchBar] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleNomClick = () => {
     setShowSideBar(true);
@@ -41,7 +44,6 @@ function App() {
       return page === 1 ? results.data.Search || [] : movies;
     });
     setPage(page + 1);
-    console.log(movies);
   };
 
   const handleScroll = () => {
@@ -55,15 +57,14 @@ function App() {
     )
       return;
     setIsFetching(true);
-    console.log("another page....................");
   };
 
   const handleNomination = (movie) => {
-    console.log(movie, nominations);
-    if (nominations.includes(movie)) {
-      let new_nom = nominations.filter((mov) => mov !== movie);
+    if (nominations.filter((mov) => mov.imdbID === movie.imdbID).length > 0) {
+      let new_nom = nominations.filter((mov) => mov.imdbID !== movie.imdbID);
       setNominations(new_nom);
       setBanner(false);
+      localStorage.setItem("nominations", JSON.stringify(new_nom));
       return false;
     } else if (nominations.length === 5) {
       return false;
@@ -71,12 +72,17 @@ function App() {
       setBanner(nominations.length === 4);
       nominations.push(movie);
       setNominations(nominations);
+      localStorage.setItem("nominations", JSON.stringify(nominations));
       return true;
     }
   };
 
   const handleBannerClose = () => {
     setBanner(false);
+  };
+
+  const handleSubmit = () => {
+    setSubmitted(true);
   };
 
   useEffect(() => {
@@ -89,10 +95,11 @@ function App() {
 
   useEffect(() => {
     if (!isFetching) return;
-    console.log("get results", page);
     getResults(value);
     setIsFetching(false);
   }, [isFetching]);
+
+  console.log(JSON.parse(localStorage.getItem("nominations")));
 
   return (
     <div className="App">
