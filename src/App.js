@@ -38,7 +38,7 @@ function App() {
 
   const getResults = async (search) => {
     const results = await axios.get(
-      `http://www.omdbapi.com/?s=${search}&type=movie&page=${page}&apikey=83cf2cc8`
+      `https://www.omdbapi.com/?s=${search}&type=movie&page=${page}&apikey=83cf2cc8`
     );
     setMovies(() => {
       movies.push(...(results.data.Search || []));
