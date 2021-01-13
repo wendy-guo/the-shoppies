@@ -1,4 +1,6 @@
 import "./style.css";
+import { RiDeleteBinFill } from "react-icons/ri";
+import { IoMdClose } from "react-icons/io";
 
 function SideBar(props) {
   return (
@@ -14,12 +16,7 @@ function SideBar(props) {
       </div>
       <div>
         {props.nominations.map((nom, i) => (
-          <Nomination
-            key={i}
-            title={nom.Title}
-            poster={nom.Poster}
-            even={i % 2 === 0}
-          />
+          <Nomination key={i} nom={nom} onDelete={props.onUnnominate} />
         ))}
       </div>
       <div
@@ -34,21 +31,20 @@ function SideBar(props) {
 }
 
 function Nomination(props) {
+  console.log(props.nom);
   return (
-    <div
-      className="sb-nom"
-      style={{ flexDirection: props.even ? "row" : "row-reverse" }}
-    >
-      {props.poster === "N/A" ? (
+    <div className="sb-nom">
+      {props.nom.Poster === "N/A" ? (
         <div className="nom-image"></div>
       ) : (
-        <img src={props.poster} alt={props.title} />
+        <img src={props.nom.Poster} alt={props.nom.Title} />
       )}
-      <div
-        className="nom-title"
-        style={{ textAlign: props.even ? "left" : "right" }}
-      >
-        {props.title}
+      <div className="nom-title">
+        <div>{props.nom.Title}</div>
+        <RiDeleteBinFill
+          className="garbage"
+          onClick={() => props.onDelete(props.nom)}
+        />
       </div>
     </div>
   );
