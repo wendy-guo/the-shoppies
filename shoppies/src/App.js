@@ -7,6 +7,7 @@ import DarkLayer from "./components/DarkLayer";
 import SideBar from "./components/SideBar";
 import Banner from "./components/Banner";
 import Movies from "./components/Movies";
+import Submit from "./components/Submit";
 
 function App() {
   const [value, setValue] = useState("");
@@ -63,8 +64,8 @@ function App() {
     if (nominations.filter((mov) => mov.imdbID === movie.imdbID).length > 0) {
       let new_nom = nominations.filter((mov) => mov.imdbID !== movie.imdbID);
       setNominations(new_nom);
-      setBanner(false);
       localStorage.setItem("nominations", JSON.stringify(new_nom));
+      setBanner(false);
       return false;
     } else if (nominations.length === 5) {
       return false;
@@ -83,6 +84,12 @@ function App() {
 
   const handleSubmit = () => {
     setSubmitted(true);
+    setNominations([]);
+    handleBannerClose();
+  };
+
+  const handleCloseSubmit = () => {
+    setSubmitted(false);
   };
 
   useEffect(() => {
@@ -99,8 +106,6 @@ function App() {
     setIsFetching(false);
   }, [isFetching]);
 
-  console.log(JSON.parse(localStorage.getItem("nominations")));
-
   return (
     <div className="App">
       <div className="app-bg"></div>
@@ -112,14 +117,20 @@ function App() {
         open={showSideBar}
         onClose={handleCloseSidebar}
         onUnnominate={handleNomination}
+        onSubmit={handleSubmit}
       />
-      <Banner show={banner} onClose={handleBannerClose} />
+      <Banner
+        show={banner}
+        onClose={handleBannerClose}
+        onSubmit={handleSubmit}
+      />
       <Movies
         movies={movies}
         margin={fixedSearchBar}
         onNominate={handleNomination}
         nominations={nominations.map((movie) => movie.imdbID)}
       />
+      <Submit show={submitted} onCloseSubmit={handleCloseSubmit} />
     </div>
   );
 }
