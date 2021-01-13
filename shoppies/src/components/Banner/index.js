@@ -1,5 +1,6 @@
 import "./style.css";
- 
+import { IoMdClose } from "react-icons/io";
+
 function Banner(props) {
   return (
     <div
