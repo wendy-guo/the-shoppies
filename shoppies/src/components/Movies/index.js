@@ -1,10 +1,15 @@
 import "./style.css";
 import { BsAward, BsAwardFill } from "react-icons/bs";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Movies(props) {
   //const [nominations, setNominations] = useState(props.nominations);
   const movies = props.movies || [];
+  const [nominations, setNominations] = useState(props.nominations);
+
+  useEffect(() => {
+    setNominations(props.nominations);
+  }, [props.nominations]);
 
   return (
     <div className="movies">
@@ -26,6 +31,10 @@ function Movies(props) {
 function Movie(props) {
   const [hover, setHover] = useState(false);
   const [nominated, setNominated] = useState(props.nominated);
+
+  useEffect(() => {
+    setNominated(props.nominated);
+  }, [props.nominated]);
 
   const handleHover = (hov) => {
     setHover(hov);
