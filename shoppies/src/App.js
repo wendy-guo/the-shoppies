@@ -5,6 +5,7 @@ import TopBar from "./components/TopBar";
 import SearchBar from "./components/SearchBar";
 import DarkLayer from "./components/DarkLayer";
 import SideBar from "./components/SideBar";
+import Banner from "./components/Banner";
 import Movies from "./components/Movies";
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
   const [showSideBar, setShowSideBar] = useState(false);
   const [isFetching, setIsFetching] = useState(false);
   const [nominations, setNominations] = useState([]);
-
+  const [banner, setBanner] = useState(false);
   const [fixedSearchBar, setFixedSearchBar] = useState(false);
 
   const handleNomClick = () => {
@@ -58,18 +59,24 @@ function App() {
   };
 
   const handleNomination = (movie) => {
+    console.log(movie, nominations);
     if (nominations.includes(movie)) {
-      setNominations(nominations.filter((mov) => mov !== movie));
-      console.log(nominations.filter((mov) => mov.imdbID !== movie.imdbID));
+      let new_nom = nominations.filter((mov) => mov !== movie);
+      setNominations(new_nom);
+      setBanner(false);
       return false;
     } else if (nominations.length === 5) {
-      // display banner
       return false;
     } else {
+      setBanner(nominations.length === 4);
       nominations.push(movie);
       setNominations(nominations);
       return true;
     }
+  };
+
+  const handleBannerClose = () => {
+    setBanner(false);
   };
 
   useEffect(() => {
@@ -97,7 +104,9 @@ function App() {
         nominations={nominations}
         open={showSideBar}
         onClose={handleCloseSidebar}
+        onUnnominate={handleNomination}
       />
+      <Banner show={banner} onClose={handleBannerClose} />
       <Movies
         movies={movies}
         margin={fixedSearchBar}
