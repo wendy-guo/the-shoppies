@@ -18,7 +18,7 @@ function App() {
   const [nominations, setNominations] = useState(
     JSON.parse(localStorage.getItem("nominations")) || []
   );
-  const [banner, setBanner] = useState(false);
+  const [banner, setBanner] = useState(nominations.length === 5);
   const [fixedSearchBar, setFixedSearchBar] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -78,14 +78,10 @@ function App() {
     }
   };
 
-  const handleBannerClose = () => {
-    setBanner(false);
-  };
-
   const handleSubmit = () => {
     setSubmitted(true);
     setNominations([]);
-    handleBannerClose();
+    setBanner(false);
   };
 
   const handleCloseSubmit = () => {
@@ -119,11 +115,7 @@ function App() {
         onUnnominate={handleNomination}
         onSubmit={handleSubmit}
       />
-      <Banner
-        show={banner}
-        onClose={handleBannerClose}
-        onSubmit={handleSubmit}
-      />
+      <Banner show={banner} onSubmit={handleSubmit} />
       <Movies
         movies={movies}
         margin={fixedSearchBar}
